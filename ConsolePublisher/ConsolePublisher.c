@@ -11,6 +11,7 @@
 
 #define CP_GCQ_CAPACITY						8
 #define CP_GCQ_TYPE							uint32_t
+
 CREATE_GCQUEUE(CP_GCQ_TYPE, CP_GCQueue, CP_GCQ_CAPACITY)
 
 /*

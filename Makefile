@@ -5,7 +5,7 @@ rebuild: clean build
 CC = gcc
 CPPFLAGS = -I. -Iutils/ -IConsoleUser2_Interrupt/ -IConsoleUser1_Task/ -IConsolePublisher/ -LBuild/Archives/
 LDFLAGS += -LBuild/Archives/
-
+CFLAGS = -std=c99
 build:
 	#Build libraries
 	$(Q) $(MAKE) build -C ./GCQueue

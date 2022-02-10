@@ -100,7 +100,7 @@ PUBLIC GCQ_Status_t GCQueue_##TYPE##_Hard_Erase(volatile GCQ_##TYPE##_t* const s
 		self->q_tail = 0;                                                                                     	 \
 		self->q_head = 0;                                                                                        \
 		self->q_size = 0;																				 		 \
-		Enter_CriticalSection();                                                                                 \
+		Exit_CriticalSection();                                                                                 \
 		gcq_status = GCQ_OK;                                                                                     \
 	}                                                                                                            \
 	else                                                                                                         \
@@ -347,7 +347,7 @@ PUBLIC GCQ_Status_t GCQueue_##TYPE##_Peek(volatile GCQ_##TYPE##_t* const self, T
  * Template to instantiate queue_q_header + queue buffer with types varies between
  * signed/unsigned 8, 16, 32 and 64 bits variables
  */
-#define INSTANTIATE_GCQUEUE(TYPE, NAME, BUFFER_SIZE_IN_TYPE_SIZE)												\
+#define INSTANTIATE_GCQUEUE(TYPE, NAME, BUFFER_SIZE_IN_TYPE_SIZE)												 \
 				INSTANTIATE_GCQUEUE_ABSTRACTOR(TYPE, NAME, BUFFER_SIZE_IN_TYPE_SIZE)
 
 /*the abstractor is used to hide the instantiation implementation from the user,
